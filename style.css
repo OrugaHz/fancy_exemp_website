@@ -30,7 +30,7 @@ nav {
     width: 100vw;
     height: 100vh;
     backdrop-filter: blur(5px);
-    /* display: none; */
+    display: none;
 }
 
 .log {
@@ -98,7 +98,8 @@ h1 {
 
 .send,
 .clear,
-.btn-close-popup {
+.btn-close-popup,
+.close-small-popup {
     display: block;
     padding: 10px 0;
     margin-left: 10px;
@@ -114,15 +115,16 @@ h1 {
 
 .btn-close-popup {
     position: relative;
-    left: 90%;
-    width: 20px;
+    left: 80%;
+    width: 50px;
     margin-bottom: 15px;
     opacity: 0.4;
 }
 
 .send:hover,
 .clear:hover,
-.btn-close-popup:hover {
+.btn-close-popup:hover,
+.close-small-popup:hover {
     background-color: rgb(0, 107, 194);
 }
 
@@ -148,6 +150,29 @@ h1 {
     border: 2px solid black;
     transition: .5s;
     background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%)
+}
+
+/* ////////////// */
+.modal-shadow {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .65);
+}
+
+.modal-animation {
+    animation: show-modal .5s;
+}
+
+@keyframes show-modal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .show-popup {

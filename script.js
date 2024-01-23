@@ -1,5 +1,5 @@
-// const btnForm = document.querySelector('.btn-log');
-// const form = document.querySelector('.popup-log-wrapper');
+const btnForm = document.querySelector('.btn-log');
+const form = document.querySelector('.popup-log-wrapper');
 const username = document.querySelector('#username');
 const password = document.querySelector('#password');
 const password2 = document.querySelector('#password2');
@@ -9,9 +9,11 @@ const btnSend = document.querySelector('.send');
 const btnCloseForm = document.querySelector('.btn-close-popup');
 const popupConfirmed = document.querySelector('.popup-confirmed');
 
+const modalShadow = document.querySelector('.modal-shadow');
 
 
 
+//1. formularz rejestracyjny + modal z informacją
 const clearForm = (input) => {
     const formBox = input.parentElement;
     formBox.classList.remove('error');
@@ -72,6 +74,7 @@ const showPopup = () => {
     }
 }
 
+//1. formularz rejestracyjny + modal z informacją
 btnSend.addEventListener('click', (e) => {
     e.preventDefault();
     checkForm([username, password, password2, email]);
@@ -95,9 +98,25 @@ btnClear.addEventListener('click', (e) => {
 })
 // setTimeout(function(){web_window.close();},1000);
 
-// const closePopup = (e) => {
-//     e.preventDefault();
+const handleForm = (e) => {
+    e.preventDefault();
+    form.classList.toggle('show-popup-log-wrapper');
+};
 
-// }
+btnCloseForm.addEventListener('click', handleForm);
+btnForm.addEventListener('click', handleForm);
 
-// btnCloseForm.addEventListener('click', closePopup());
+
+//////////////////
+const showModal = () => {
+    if (!(modalShadow.style.display === 'block')) {
+        modalShadow.style.display = 'block';
+    } else {
+        modalShadow.style.display = 'none';
+    };
+
+    modalShadow.classList.toggle('modal-animation')
+}
+
+window.addEventListener('click', e => e.target === popupConfirmed ? showModal() : false);
+// window.addEventListener('click', e => e.target === modalShadow ? showModal() : false);

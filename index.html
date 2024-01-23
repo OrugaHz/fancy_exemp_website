@@ -19,7 +19,7 @@
     <div class="popup-log-wrapper">
         <div class="log">
             <form>
-                <button class="btn-close-popup" onclick="closePopup()">X</button>
+                <button class="btn-close-popup">X</button>
                 <h1>Zarejestruj się!</h1>
                 <div class="form-box">
                     <label for="username">Nazwa użytkownika:</label>
@@ -46,9 +46,11 @@
                     <button class="send">Wyślij</button>
                 </div>
 
-                <div class="popup-confirmed">
-                    <p>Formularz został poprawnie wysłany!</p>
-                    <button class="close">Zamknij</button>
+                <div class="modal-shadow">
+                    <div class="popup-confirmed show-popup">
+                        <p>Formularz został poprawnie wysłany!</p>
+                        <button class="close-small-popup">Zamknij</button>
+                    </div>
                 </div>
             </form>
         </div>
