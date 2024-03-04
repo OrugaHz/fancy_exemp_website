@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+:root {
+    --fontColor: #000;
+    --btnColor: white;
+
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -177,4 +183,38 @@ h1 {
 
 .show-popup {
     top: 150px;
+}
+
+/* ---sekcja buttons--- */
+.btn-section1 {
+    position: relative;
+    padding: 20px 20px;
+    color: var(--fontColor);
+    background-color: var(--btnColor);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btn-section1:focus {
+    outline: none;
+    /* background-color: #09c6f9; */
+}
+
+.circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: gray;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: zoom .3s;
+}
+
+@keyframes zoom {
+    to {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
 }

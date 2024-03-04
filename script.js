@@ -13,6 +13,9 @@ const modalShadow = document.querySelector('.modal-shadow');
 
 
 
+const btns = document.querySelectorAll('.btn-section1');
+
+
 //1. formularz rejestracyjny + modal z informacją
 const clearForm = (input) => {
     const formBox = input.parentElement;
@@ -120,3 +123,29 @@ const showModal = () => {
 
 window.addEventListener('click', e => e.target === popupConfirmed ? showModal() : false);
 // window.addEventListener('click', e => e.target === modalShadow ? showModal() : false);
+
+// 2. Sekcja buttons z circle
+
+const btnAnimation = e => {
+    const top = e.clientY;
+    const left = e.clientX;
+
+    const btnTop = e.target.offsetTop;
+    const btnLeft = e.target.offsetLeft;
+
+    const btnAnimationTop = top - btnTop;
+    const btnAnimationLeft = left - btnLeft;
+
+    const circle = document.createElement('span');
+    circle.classList.add('circle');
+    circle.style.top = btnAnimationTop + 'px';
+    circle.style.left = btnAnimationLeft + 'px';
+
+    e.target.appendChild(circle);
+
+    setTimeout(() => {
+        circle.remove()
+    }, '300');
+}
+
+btns.forEach(btn => btn.addEventListener('click', btnAnimation));
